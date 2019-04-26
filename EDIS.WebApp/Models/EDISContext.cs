@@ -8,10 +8,9 @@ namespace EDIS.WebApp.Models
         public DbSet<Inventory> Inventory { get; set;}
         public DbSet<Prescription> Prescription { get; set;}
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=EDIS.db");
-        }
+        public EDISContext(DbContextOptions<EDISContext> options)
+            :base(options)
+        {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

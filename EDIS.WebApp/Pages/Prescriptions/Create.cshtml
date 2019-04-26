@@ -1,0 +1,48 @@
+@page
+@model EDIS.WebApp.Pages.Prescriptions.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Prescription</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Prescription.RxNumber" class="control-label"></label>
+                <input asp-for="Prescription.RxNumber" class="form-control" />
+                <span asp-validation-for="Prescription.RxNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prescription.RefillsRemaining" class="control-label"></label>
+                <input asp-for="Prescription.RefillsRemaining" class="form-control" />
+                <span asp-validation-for="Prescription.RefillsRemaining" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prescription.LastRefillDate" class="control-label"></label>
+                <input asp-for="Prescription.LastRefillDate" class="form-control" />
+                <span asp-validation-for="Prescription.LastRefillDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prescription.StockNumber" class="control-label"></label>
+                <select asp-for="Prescription.StockNumber" class ="form-control" asp-items="ViewBag.StockNumber"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

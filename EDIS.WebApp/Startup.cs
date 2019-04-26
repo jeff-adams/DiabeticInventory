@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EDIS.WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EDIS.WebApp
 {
@@ -31,6 +33,8 @@ namespace EDIS.WebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<EDISContext>(options => 
+                options.UseSqlite(Configuration.GetConnectionString("EDISContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
