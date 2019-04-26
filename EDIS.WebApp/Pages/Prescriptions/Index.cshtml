@@ -2,25 +2,28 @@
 @model EDIS.WebApp.Pages.Prescriptions.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Prescriptions";
 }
 
-<h1>Index</h1>
+<h1>Prescriptions</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Prescription[0].RxNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prescription[0].StockNumberNavigation.ItemType)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Prescription[0].RefillsRemaining)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Prescription[0].LastRefillDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prescription[0].StockNumberNavigation)
             </th>
             <th></th>
         </tr>
@@ -29,13 +32,16 @@
 @foreach (var item in Model.Prescription) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.RxNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockNumberNavigation.ItemType)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.RefillsRemaining)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LastRefillDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StockNumberNavigation.StockNumber)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.RxNumber">Edit</a> |
