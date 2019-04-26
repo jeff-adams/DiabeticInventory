@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace EDISWebApp.Models
+namespace EDIS.WebApp.Models
 {
     public class EDISContext : DbContext
     {

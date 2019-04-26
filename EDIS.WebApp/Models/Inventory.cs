@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace EDISWebApp.Models
+namespace EDIS.WebApp.Models
 {
     public class Inventory
     {
