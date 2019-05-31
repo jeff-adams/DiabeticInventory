@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EDIS.WebApp.Models
+namespace EDIS.Domain
 {
     public class Prescription
     {
