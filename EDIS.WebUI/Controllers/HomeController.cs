@@ -5,12 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EDIS.WebUI.Models;
+using EDIS.Domain;
 
 namespace EDIS.WebUI.Controllers
 {
     public class HomeController : Controller
-    {
+    {     
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Inventory()
         {
             return View();
         }

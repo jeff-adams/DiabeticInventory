@@ -1,0 +1,32 @@
+@model IEnumerable<Inventory>
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+<div class="mb-5">
+    <h3>Inventory List</h3>
+</div>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Brand)</th>
+                <th>@Html.DisplayNameFor(model => model.ItemType)</th>
+                <th>@Html.DisplayNameFor(model => model.UnitsOnHand)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Brand</td>
+                    <td>@item.ItemType</td>
+                    <td>@item.UnitsOnHand</td>
+                    <td>
+                        @Html.ActionLink("Details", $"GetInventory?{item.StockNumber}", "InventoryApi")
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>
